@@ -6,7 +6,7 @@ from google.adk.agents import Agent
 # -----------------------------
 # TOOL 1: get_match_data
 # -----------------------------
-# Single 'payload' parameter to avoid default-argument warnings in the function schema.
+# 
 def get_match_data(payload: Dict[str, Any]) -> Dict[str, Any]:
     """
     payload = {
@@ -101,8 +101,10 @@ def get_match_data(payload: Dict[str, Any]) -> Dict[str, Any]:
     return {"status": "success", "facts": facts}
 
 # -----------------------------
-# TOOL 2: word_count   (no delta; simple OK/too_short/too_long)
-# -----------------------------
+# TOOL 2: word_count   
+# ----------------------------
+#
+
 def word_count(payload: Dict[str, Any]) -> Dict[str, Any]:
     """
     payload = { "text": "...", "min_words": 260, "max_words": 340 }
@@ -174,3 +176,4 @@ root_agent = Agent(
     ),
     tools=[get_match_data, word_count, return_final],
 )
+
